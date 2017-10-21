@@ -14,13 +14,34 @@ add_filter( 'the_content', 'dl_related_posts');
 
 function dl_related_posts($content) {
 
+    if (!is_single()) return $content;
+
     $id = get_the_ID();
     $categories = get_the_category( $id );
 
     foreach ($categories as $category) {
         $cats_id[] = $category->cat_ID;
     }
-    print_r($cats_id);
+    $related_posts = new WP_Query(
+        array(
+            'posts_per_page' => 5,
+            'category__in' => $cats_id,
+            'orderby' => 'rand',
+            'post__not_in' => array($id)
+        )
+    );
+
+    if($related_posts->have_posts()) {
+        $content .= '<div class="related-posts"><h3>Возможно вас заинтересуют эти записи:</h3>';
+
+        while ($related_posts->have_posts()) {
+            $related_posts->the_post();
+            $content .= '<a href="' . get_permalink() . '">' . get_the_title() . '</a></br>';
+        }
+
+        $content .= '</div>';
+        wp_reset_query();
+    }
 
     return $content;
 
