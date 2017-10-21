@@ -9,3 +9,19 @@
  * Text Domain: text-domain
  * Domain Path: domain/path
  */
+
+add_filter( 'the_content', 'dl_related_posts');
+
+function dl_related_posts($content) {
+
+    $id = get_the_ID();
+    $categories = get_the_category( $id );
+
+    foreach ($categories as $category) {
+        $cats_id[] = $category->cat_ID;
+    }
+    print_r($cats_id);
+
+    return $content;
+
+}
