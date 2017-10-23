@@ -1,5 +1,5 @@
 <?php /**
- * Plugin Name: Пример работы хуков 
+ * !Plugin Name: Пример работы хуков 
  * Description: Несколько примеров работы хуков
  * Plugin URI: http://lysak.github.io
  * Author: Dmytrii Lysak

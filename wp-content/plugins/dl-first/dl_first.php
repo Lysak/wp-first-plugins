@@ -1,5 +1,5 @@
 <?php /**
- * Plugin Name: Первый плагин   
+ * !Plugin Name: Первый плагин   
  * Description: Описание первого плагина
  * Plugin URI: http://lysak.github.io
  * Author: Dmytrii Lysak
