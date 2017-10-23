@@ -11,6 +11,17 @@
  */
 
 add_filter( 'the_content', 'dl_related_posts');
+add_action( 'wp_enqueue_scripts', 'wp_register_styles_scripts' );
+
+function wp_register_styles_scripts() {
+    wp_register_script( 'dl-jquery-tool-js', plugins_url( 'js/jquery.tools.min.js', __FILE__ ), array('jquery') );
+    wp_register_script( 'dl-scripts-js', plugins_url( 'js/dl_scripts.js', __FILE__ ), array('jquery') );
+    wp_register_style( 'dl-related-posts', plugins_url( 'css/dl_style.css', __FILE__ ) );
+
+    wp_enqueue_script( 'dl-jquery-tool-js' );
+    wp_enqueue_script( 'dl-scripts-js' );
+    wp_enqueue_style( 'dl-related-posts' );
+}
 
 function dl_related_posts($content) {
 
