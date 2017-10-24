@@ -10,6 +10,8 @@
  * Domain Path: domain/path
  */
 
+include(__FILE__, 'dl_create_field');
+
 register_activation_hook( __FILE__, 'dl_create_field' );
 add_filter('the_content', 'dl_post_views');
 add_action('wp_head', 'dl_add_view');
@@ -17,8 +19,10 @@ add_action('wp_head', 'dl_add_view');
 function dl_create_field() {
     global $wpdb;
 
-    $query = "ALTER TABLE $wpdb->posts ADD dl_views INT NOT NULL DEFAULT '0'";
-    $wpdb -> query($query);
+    if(!dl_check_field('dl_views')){
+        $query = "ALTER TABLE $wpdb->posts ADD dl_views INT NOT NULL DEFAULT '0'";
+        $wpdb -> query($query);
+    }
 }
 
 function dl_post_views($content){
