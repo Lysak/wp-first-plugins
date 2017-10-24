@@ -10,7 +10,7 @@
  * Domain Path: domain/path
  */
 
-include(__FILE__, 'dl_create_field');
+include dirname(__FILE__) . '/dl-check.php';
 
 register_activation_hook( __FILE__, 'dl_create_field' );
 add_filter('the_content', 'dl_post_views');

@@ -2,7 +2,7 @@
 
 if( !defined('WP_UNINSTALL_PLUGIN')) exit;
 
-include(__FILE__, 'dl_create_field');
+include dirname(__FILE__) . '/dl-check.php';
 
 global $wpdb;
 
