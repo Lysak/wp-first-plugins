@@ -12,18 +12,19 @@
 
 add_filter('comment_form_default_fields', 'dl_captcha');
 add_filter('preprocess_comment', 'dl_check_captcha');
-add_filter('comment_form_field_comment', 'dl_captcha2');
+// add_filter('comment_form_field_comment', 'dl_captcha2'); // пример использования comment_form_field_comment
 
 function dl_captcha($fields){
     unset($fields['url']);
-    /*$fields['captcha'] = '<p>
+    $fields['captcha'] = '<p>
     <label for="captcha">Капча <span class="required">*</span></label>
     <input type="checkbox" name="captcha" id="captcha">
-    </p>';*/
+    </p>';
     return $fields;
 }
 
 function dl_check_captcha($comment_data){
+    unset($comment_data['comment_author_url']); // убрать ссылку на сайт даже если поле сайт было заполнено 
     if(is_user_logged_in()) return $comment_data;
     if(!isset($_POST['captcha'])){
         wp_die('<b>Ошибка</b>: вы не прошли проверку на человечность');
@@ -31,10 +32,11 @@ function dl_check_captcha($comment_data){
     return $comment_data;
 }
 
-function dl_captcha2($comment_fields){
-    $comment_fields .= '<p>
-    <label for="captcha">Капча <span class="required">*</span></label>
-    <input type="checkbox" name="captcha" id="captcha">
-    </p>';
-    return $comment_fields;
-}
+// function dl_captcha2($comment_fields){
+//     if(is_user_logged_in()) return $comment_fields;
+//     $comment_fields .= '<p>
+//     <label for="captcha">Капча <span class="required">*</span></label>
+//     <input type="checkbox" name="captcha" id="captcha">
+//     </p>';
+//     return $comment_fields;
+// }
