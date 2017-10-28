@@ -15,3 +15,8 @@ alias add='git add .'
 alias cm='git commit -m '
 alias push='git push -u origin master'
 alias pull='git pull'
+
+
+# nginx configuration
+
+error_page 404 /index.php?error=404;
