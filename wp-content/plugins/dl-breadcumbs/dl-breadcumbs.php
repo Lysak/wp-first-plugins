@@ -51,10 +51,27 @@ function dl_title($title){
 		if( $cat->parent ){
 			//если есть родительская категория
 			$categories = rtrim( get_category_parents( $cat_id, false, $sep ), $sep );
+			$categories = explode($sep, $categories);
+			$title = array_reverse($categories);
+			$title[] = $site;
+			// print_r($categories);
 		}else{
 			// если это самостоятельная категория
 			$title = array( $cat->name, $site);
 		}
+	}
+
+	// запись
+	if( is_single() ){
+		// массив данных о категориях
+		$category = get_the_category();
+		// ID категории
+		$cat_id = $category[0]->cat_ID;
+		// родительськие категории
+		$categories = rtrim( get_category_parents( $cat_id, false, $sep ), $sep );
+		$categories = explode($sep, $categories);
+		$title = array_reverse($categories);
+		$title[] = $site;
 	}
 
 	// архив
