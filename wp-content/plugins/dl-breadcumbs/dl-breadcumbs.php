@@ -42,6 +42,21 @@ function dl_title($title){
 		$title = array( 'Страница не найдена' );
 	}
 
+	// категория
+	elseif( is_category() ){
+		// ID категории
+		$cat_id = get_query_var('cat');
+		// данные категории
+		$cat = get_category($cat_id);
+		if( $cat->parent ){
+			//если есть родительская категория
+			$categories = rtrim( get_category_parents( $cat_id, false, $sep ), $sep );
+		}else{
+			// если это самостоятельная категория
+			$title = array( $cat->name, $site);
+		}
+	}
+
 	// архив
 	elseif ( is_archive() ){
 		$title = array( 'Архив за: ' . get_the_time("F Y"), $site );
