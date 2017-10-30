@@ -17,6 +17,6 @@ alias push='git push -u origin master'
 alias pull='git pull'
 
 
-# nginx configuration
+# nginx configuration for openserver
 
 error_page 404 /index.php?error=404;

@@ -20,7 +20,7 @@ function dl_captcha_login(){
     echo '<p><label class="login-checked" style="font-size: 12px;" for="check"><input type="checkbox" name="check" id="check" value="check" checked> Снимите галочку</label></p>';
 }
 
-function dl_authenticate(){
+function dl_authenticate($username, $password){
     if(isset($_POST['check']) && $_POST['check'] == 'check'){
         // wp_die( '<b>Ошибка</b>: вы не прошли проверку на человечность');
         add_filter('login_errors', 'my_login_errors');
