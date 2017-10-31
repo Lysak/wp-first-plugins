@@ -62,7 +62,7 @@ function dl_title($title){
 	}
 
 	// запись
-	if( is_single() ){
+	elseif( is_single() ){
 		// массив данных о категориях
 		$category = get_the_category();
 		// ID категории
@@ -70,12 +70,14 @@ function dl_title($title){
 		// родительськие категории
 		$categories = rtrim( get_category_parents( $cat_id, false, $sep ), $sep );
 		$categories = explode($sep, $categories);
+		print_r($categories);
+		$categories[] = get_the_title();
 		$title = array_reverse($categories);
 		$title[] = $site;
 	}
 
 	// архив
-	elseif ( is_archive() ){
+	elseif( is_archive() ){
 		$title = array( 'Архив за: ' . get_the_time("F Y"), $site );
 	}
 
