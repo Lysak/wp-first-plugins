@@ -14,22 +14,43 @@
  * Time: 13:57
  */
 
-add_shortcode( 'test', 'dl_test' );
+// add_shortcode( 'test', 'dl_test' );
 
-function dl_test( $atts, $content ) {
-/*	$content = ! empty($content) ? $content : 'Default Тестовые данные:';
-	$user = isset( $atts['user'] ) ? $atts['user'] : 'Default Name';
-	$login = isset( $atts['login'] ) ? $atts['login'] : 'Default Login';*/
-	$atts = shortcode_atts(
+// function dl_test( $atts, $content ) {
+// /*	$content = ! empty($content) ? $content : 'Default Тестовые данные:';
+// 	$user = isset( $atts['user'] ) ? $atts['user'] : 'Default Name';
+// 	$login = isset( $atts['login'] ) ? $atts['login'] : 'Default Login';*/
+// 	$atts = shortcode_atts(
+// 		array(
+// 			'user'    => 'Name',
+// 			'login'   => 'Login',
+// 			'content' => ! empty( $content ) ? $content : 'Default Тестовые данные:'
+// 		), $atts
+// 	);
+// 	extract($atts);
+
+// 	/** @var $user */
+// 	/** @var $login */
+// 	return "<h3>{$content}</h3><p>Привет, {$user}! Ваш логин: {$login}</p>";
+// }
+
+add_shortcode( 'map', 'dl_map' );
+
+function dl_map( $atts, $content ) {
+	$atts = shortcode_atts( 
 		array(
-			'user'    => 'Name',
-			'login'   => 'Login',
-			'content' => ! empty( $content ) ? $content : 'Default Тестовые данные:'
+			'center' => 'Винница, город Винница, Украина',
+			'width' => 600,
+			'hight' => 300,
+			'zoom' => 13,
+			'content' => ! empty( $content ) ? "<h2>$content</h2>" : "<h2></h2>"
 		), $atts
 	);
+	$atts['size'] = $atts['width'] . 'x' . $atts['hight'];
+	$atts['center'] = str_replace( ' ', '+', $atts['center']);
 	extract($atts);
 
-	/** @var $user */
-	/** @var $login */
-	return "<h3>{$content}</h3><p>Привет, {$user}! Ваш логин: {$login}</p>";
+	$map = $content;
+	$map .= '<img src="http://maps.googleapis.com/maps/api/staticmap?center=' . $center . '&zoom=' . $zoom . '&size=' . $size . '&sensor=false" alt="">';
+	return $map;
 }
