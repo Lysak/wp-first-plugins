@@ -70,7 +70,6 @@ function dl_title($title){
 		// родительськие категории
 		$categories = rtrim( get_category_parents( $cat_id, false, $sep ), $sep );
 		$categories = explode($sep, $categories);
-		print_r($categories);
 		$categories[] = get_the_title();
 		$title = array_reverse($categories);
 		$title[] = $site;

@@ -22,8 +22,10 @@ a {
 	display: none;
 	background: transparent url(../images/black_arrow.png);
 	font-size: 14px;
-	height: 115px;
-	width: 210px;
+/*	height: 115px;
+	width: 210px;*/
+	height: 71px;
+    width: 159px;
 	padding: 25px;
 	color: #fff;
 }
