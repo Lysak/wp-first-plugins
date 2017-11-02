@@ -36,9 +36,9 @@ function dl_related_posts($content) {
     $related_posts = new WP_Query(
         array(
             'posts_per_page' => 5,
-            'category__in' => $cats_id,
-            'orderby' => 'rand',
-            'post__not_in' => array($id)
+            'category__in'   => $cats_id,
+            'orderby'        => 'rand',
+            'post__not_in'   => array($id)
         )
     );
 

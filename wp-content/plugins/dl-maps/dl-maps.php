@@ -53,6 +53,7 @@ function dl_map( $atts, $content ) {
 	/** @var $zoom number */
 	/** @var $size string */
 	$map = $content;
-	$map .= '<img src="http://maps.googleapis.com/maps/api/staticmap?center=' . $center . '&zoom=' . $zoom . '&size=' . $size . '&sensor=false" alt="">';
+	// key=AIzaSyCAxudyHIETdaY6qdJyBxQyzh2ThQHx2zM
+	$map .= '<img src="http://maps.googleapis.com/maps/api/staticmap?center=' . $center . '&zoom=' . $zoom . '&size=' . $size . '&key=AIzaSyCAxudyHIETdaY6qdJyBxQyzh2ThQHx2zM&sensor=false" alt="">';
 	return $map;
 }
