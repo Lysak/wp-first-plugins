@@ -34,7 +34,7 @@
 // 	return "<h3>{$content}</h3><p>Привет, {$user}! Ваш логин: {$login}</p>";
 // }
 
-add_shortcode( 'map', 'dl_map' );
+add_shortcode( 'map_st', 'dl_map' );
 
 function dl_map( $atts, $content ) {
 	$atts = shortcode_atts( 

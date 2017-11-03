@@ -1,12 +1,12 @@
+var map;
+console.log(dlObj);
 function initialize() {
     var mapOptions = {
-        center: new google.maps.LatLng(-34.397, 150.644),
-        zoom: 8,
+        center: new google.maps.LatLng(dlObj.cords1, dlObj.cords2),
+        zoom: +dlObj.zoom,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 }
-console.log('kuku');
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
