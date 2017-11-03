@@ -1,5 +1,6 @@
 var map;
-console.log(dlObj);
+// console.log(dlObj);
+// API info: https://developers.google.com/maps/documentation/javascript/examples/map-latlng-literal?hl=ru
 function initialize() {
     var mapOptions = {
         center: new google.maps.LatLng(dlObj.cords1, dlObj.cords2),

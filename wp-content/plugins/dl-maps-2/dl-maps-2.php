@@ -1,6 +1,6 @@
 <?php /**
  * Plugin Name: Карты Google v.2
- * Description: Пример шорткода: [map cords1="-34.397" cords2="150.644" zoom="8"].
+ * Description: Пример шорткода: [map cords="48.718812, 27.520369" zoom="13"].
  * Plugin URI: http://lysak.github.io
  * Author: Dmytrii Lysak
  * Author URI: http://lysak.github.io
@@ -25,6 +25,12 @@ $dl_maps_array = array();
 
 function dl_maps_2( $atts ) {
 	global $dl_maps_array;
+
+	extract( $atts );
+	$cordsn = explode(", ", $cords);
+	var_dump($cordsn[0]); // cords1
+	var_dump($cordsn[1]); // cords2
+
 	$atts = shortcode_atts(  
 		array(
 			'cords1' => 37.35,
@@ -32,11 +38,11 @@ function dl_maps_2( $atts ) {
 			'zoom' => 12,
 		), $atts
 	);
-	extract( $atts );
+	
 	$dl_maps_array = array(
 		'zoom' => $zoom,
-		'cords1' => $cords1,
-		'cords2' => $cords2,
+		'cords1' => $cordsn[0],
+		'cords2' => $cordsn[1],
 	);
 	
 	add_action( 'wp_footer', 'dl_styles_scripts' );
@@ -46,7 +52,8 @@ function dl_maps_2( $atts ) {
 function dl_styles_scripts() { //key=AIzaSyCAxudyHIETdaY6qdJyBxQyzh2ThQHx2zM
 	global $dl_maps_array;
 	
-	wp_register_script( 'dl-maps-google', 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCAxudyHIETdaY6qdJyBxQyzh2ThQHx2zM&sensor=false' );
+	// wp_register_script( 'dl-maps-google', 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCAxudyHIETdaY6qdJyBxQyzh2ThQHx2zM&sensor=false' );
+	wp_register_script( 'dl-maps-google', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCAxudyHIETdaY6qdJyBxQyzh2ThQHx2zM' );
 	wp_register_script( 'dl-maps-2', plugins_url( 'dl-maps-2.js', __FILE__ ) );
 
 	wp_enqueue_script( 'dl-maps-google' );
