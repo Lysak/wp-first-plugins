@@ -32,3 +32,13 @@ alias pull='git pull'
 # nginx configuration for openserver
 
 error_page 404 /index.php?error=404;
+
+# git
+
+git remote -v
+
+git remote set-url origin *** - добавить
+
+git remote set-url --delete origin *** - изъять
+
+git push origin --delete <branchName> - not tested
