@@ -220,7 +220,7 @@ msgstr "Основное меню"
 msgid "Proudly powered by %s"
 msgstr "Сайт работает на %s"
 
-#. #-#-#-#-#  twentyfifteen.pot (Twenty Fifteen 1.8)  #-#-#-#-#
+#. #-#-#-#-#  twentyfifteen.pot (Twenty Fifteen 1.9)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: footer.php:25
 msgid "https://wordpress.org/"
@@ -256,17 +256,9 @@ msgstr "Страниц:"
 msgid "Continue reading %s"
 msgstr "Читать далее %s"
 
-#: comments.php:53
+#: comments.php:69
 msgid "Comments are closed."
 msgstr "Обсуждение закрыто."
-
-#: comments.php:28
-msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "%2$s: %1$s комментарий"
-msgstr[1] "%2$s: %1$s комментария"
-msgstr[2] "%2$s: %1$s комментариев"
 
 #: author-bio.php:34
 msgid "View all posts by %s"

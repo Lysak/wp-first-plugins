@@ -27,11 +27,11 @@ function dl_maps_2( $atts ) {
 	global $dl_maps_array;
 
 	extract( $atts );
+	/** @var $cords string */
+	/** @var $zoom number */
 	$cordsn = explode(", ", $cords);
-	var_dump($cordsn[0]); // cords1
-	var_dump($cordsn[1]); // cords2
 
-	$atts = shortcode_atts(  
+	$atts = shortcode_atts(
 		array(
 			'cords1' => 37.35,
 			'cords2' => -121.96,
@@ -46,7 +46,7 @@ function dl_maps_2( $atts ) {
 	);
 	
 	add_action( 'wp_footer', 'dl_styles_scripts' );
-	return '<div id="map-canvas" style="widht: 650px; height:400px;"></div>';
+	return '<div id="map-canvas" style="width:650px; height:400px;"></div>';
 }
 
 function dl_styles_scripts() { //key=AIzaSyCAxudyHIETdaY6qdJyBxQyzh2ThQHx2zM
