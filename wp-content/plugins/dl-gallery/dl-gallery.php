@@ -15,7 +15,15 @@ function dl_gallery( $atts ) {
     if( !$img_id[0] ) return '<div class="dl_gllery">В галерее нет картинок</div>';
     $html .= '<div class="dl_gllery">';
     foreach ($img_id as $item) {
-        $img_date = get_posts();
+        $img_data = get_posts( array(
+            'p' => $item,
+            'post_type' => 'attachment',
+        ) );
+        // print_r($img_data);
+        $img_desc    = $img_data[0]->post_content;
+        $img_caption = $img_data[0]->post_excerpt;
+        $img_title   = $img_data[0]->post_title;
+        echo $img_desc . '|' . $img_caption . '|' . $img_title . '<br />';
     }
     $html .= '</div>';
     return $html;
