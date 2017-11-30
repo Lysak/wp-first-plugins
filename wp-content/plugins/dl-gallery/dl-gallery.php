@@ -9,6 +9,17 @@
 
 remove_shortcode('gallery');
 add_shortcode( 'gallery', 'dl_gallery' );
+add_action( 'wp_enqueue_script', 'dl_style_scripts' ); 
+
+function dl_style_scripts() {
+    wp_register_script( 'dl-lightbox-js', plugins_url( 'js/lightbox.min.js', __FILE__ ), array('jquery') );
+    wp_register_style( 'dl-lightbox', plugins_url( 'css/lightbox.css', __FILE__ ) );
+    wp_register_style( 'dl-lightbox-style', plugins_url( 'css/lightbox-style.css', __FILE__ ) );
+
+    wp_enqueue_script( 'dl-lightbox-js' );
+    wp_enqueue_style( 'dl-lightbox' );
+    wp_enqueue_style( 'dl-lightbox-style' );
+}
 
 function dl_gallery( $atts ) {
     $img_id = explode( ',', $atts['ids'] );
@@ -25,7 +36,7 @@ function dl_gallery( $atts ) {
         $img_title   = $img_data[0]->post_title;
         // echo $img_desc . '|' . $img_caption . '|' . $img_title . '<br />';
         $img_thumb = wp_get_attachment_image_src( $item );
-        var_dump($img_full);
+        // var_dump($img_full);
         $img_full = wp_get_attachment_image_src( $item, 'full' );
         $html .= "<a href='{$img_full[0]}' data-lightbox='gallery' data-title='{$img_caption}'><img src='{$img_thumb[0]}' width='{$img_thumb[1]}' height='{$img_thumb[2]}' alt='{$img_title}'></a>";
     }
