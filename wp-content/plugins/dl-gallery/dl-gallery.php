@@ -9,9 +9,9 @@
 
 remove_shortcode('gallery');
 add_shortcode( 'gallery', 'dl_gallery' );
-add_action( 'wp_enqueue_script', 'dl_style_scripts' ); 
+add_action( 'wp_enqueue_scripts', 'dl_styles_scripts_g' ); 
 
-function dl_style_scripts() {
+function dl_styles_scripts_g() {
     wp_register_script( 'dl-lightbox-js', plugins_url( 'js/lightbox.min.js', __FILE__ ), array('jquery') );
     wp_register_style( 'dl-lightbox', plugins_url( 'css/lightbox.css', __FILE__ ) );
     wp_register_style( 'dl-lightbox-style', plugins_url( 'css/lightbox-style.css', __FILE__ ) );
@@ -23,8 +23,8 @@ function dl_style_scripts() {
 
 function dl_gallery( $atts ) {
     $img_id = explode( ',', $atts['ids'] );
-    if( !$img_id[0] ) return '<div class="dl_gllery">В галерее нет картинок</div>';
-    $html .= '<div class="dl_gllery">';
+    if( !$img_id[0] ) return '<div class="dl-gallery">В галерее нет картинок</div>';
+    $html .= '<div class="dl-gallery">';
     foreach ($img_id as $item) {
         $img_data = get_posts( array(
             'p' => $item,
