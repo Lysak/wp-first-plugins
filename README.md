@@ -39,6 +39,7 @@ git remote -v
 
 git remote set-url origin *** - добавить
 
-git remote set-url --delete origin *** - изъять
+?? git remote set-url --delete origin *** - изъять
+git remote rm origin ++
 
 git push origin --delete <branchName> - not tested
