@@ -43,6 +43,7 @@ git remote -v
 
 git remote set-url origin *** - добавить
 
+<<<<<<< HEAD
 git remote add origin git@github.com:Lysak/webwp.git - working
 
 git remote set-url --delete origin *** - изъять (не работало)
@@ -50,5 +51,9 @@ git remote set-url --delete origin *** - изъять (не работало)
 git remote rm NAME ORIGIN - working
 
 git remote rename FROM TO - working
+=======
+?? git remote set-url --delete origin *** - изъять
+git remote rm origin ++
+>>>>>>> 14e46daa6e2681bd0bcaac421345d8ab31318d76
 
 git push origin --delete <branchName> - not tested
