@@ -3,6 +3,8 @@
 git rm -r --cached /var/www/wordpress.loc - удалить файлы из репозитория (переиндексировать)
 
 shift+alt+a - vscode multiline comment
+ctrl+shift+a - (ubuntu) vscode multiline comment
+alt+
 
 ctrl+shit+/ - idea multiline comment
 
@@ -11,6 +13,8 @@ Quick Add Next, виділити наступне схоже слово/змін
 shift+alt+up/down - дублировать строку 
 
 ctrl+shift+alt+l - reformat code [(alt+=), aligments]
+
+Ctrl-Shift-U - idea Transform into uppercase / lowercase
 
 
 alias ll='ls -l'
@@ -39,6 +43,12 @@ git remote -v
 
 git remote set-url origin *** - добавить
 
-git remote set-url --delete origin *** - изъять
+git remote add origin git@github.com:Lysak/webwp.git - working
+
+git remote set-url --delete origin *** - изъять (не работало)
+
+git remote rm NAME ORIGIN - working
+
+git remote rename FROM TO - working
 
 git push origin --delete <branchName> - not tested

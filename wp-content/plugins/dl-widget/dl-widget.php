@@ -44,6 +44,11 @@ class DL_Widget extends WP_Widget
             <input type="text" name="<?= $this->get_field_name('title') ?>" id="<?= $this->get_field_id('title') ?>" value="<?php if( isset($title) ) echo esc_attr( $title ); ?>" class="widefat">
         </p>
 
+        <p>
+            <label for="<?= $this->get_field_id('text') ?>">Текст: </label>
+            <textarea class="widefat" name="<?= $this->get_field_name('text') ?>" id="<?= $this->get_field_id('text') ?>" cols="20" rows="5"><?php if( isset($text) ) echo esc_attr( $text ); ?></textarea>
+        </p>
+
         <?php
     }
 }
