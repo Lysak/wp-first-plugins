@@ -8,6 +8,10 @@ alt+
 
 ctrl+shit+/ - idea multiline comment
 
+Edit.UnIndent - Idea
+Ctrl+Alt+Shit+[
+Ctrl+Alt+Shit+]
+
 Quick Add Next, виділити наступне схоже слово/змінну (IDEA) виділити слово,+ alt+j
 
 shift+alt+up/down - дублировать строку 
@@ -57,3 +61,6 @@ git remote rm origin ++
 >>>>>>> 14e46daa6e2681bd0bcaac421345d8ab31318d76
 
 git push origin --delete <branchName> - not tested
+
+
+git update-index --assume-unchanged .gitignore - gitignore добавить в gitignore
