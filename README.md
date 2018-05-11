@@ -39,6 +39,13 @@ alias pull='git pull'
 
 # nginx configuration for openserver
 
+для версии 1.12, в папке \OSPanel\userdata\config и в файле Nginx-1.12_vhost.conf в location добавить строку, вот так:
+location / {
+root "%hostdir%";
+index index.php index.html index.htm;
+error_page 404 /index.php?error=404;
+}
+
 error_page 404 /index.php?error=404;
 
 # git
