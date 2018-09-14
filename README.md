@@ -71,3 +71,15 @@ git push origin --delete <branchName> - not tested
 
 
 git update-index --assume-unchanged .gitignore - gitignore добавить в gitignore
+
+
+=========================
+new info
+************
+git remote add origin git@github.com:User/UserRepo.git
+is used to a add a new remote
+
+git remote set-url origin git@github.com:User/UserRepo.git
+is used to change the url of an existing remote repository
+
+git push -u origin master
