@@ -83,3 +83,14 @@ git remote set-url origin git@github.com:User/UserRepo.git
 is used to change the url of an existing remote repository
 
 git push -u origin master
+
+
+
+// define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
+define( 'FS_METHOD', 'direct' );
+//  Disable display of errors and warnings
+define( 'WP_DEBUG_DISPLAY', true );
+error_reporting( E_ALL ); // включаем сообщения об ошибках
+@error_reporting( E_ALL ); // включаем сообщения об ошибках
+@ini_set( 'display_errors', 1 ); // включаем показ ошибок на экран
